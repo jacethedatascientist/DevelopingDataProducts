@@ -1,0 +1,57 @@
+---
+title: "Shiny Application and Reproducible Pitch"
+author: "jacethedatascientist"
+date: "August 15, 2019"
+output:
+  ioslides_presentation: default
+  slidy_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## <code>Introduction</code>
+
+This is the Final Project of the Developing Data Products.
+
+The App was created to compute the Body Mass Index for Male and Female in terms of English Metric and International Metric System of Units.
+
+## <code>What is a Body Mass Index?</code>
+**Body mass index (BMI)** is a value derived from the *mass (weight)* and *height* of a person. The BMI is defined as the *body mass divided by the square of the body height*, and is universally expressed in units of **kg/m^2^**, resulting from mass in *kilograms* and height in *metres* or in <code>lbs</code> and <code>in</code>.
+
+Shiny App : https://jacethedatascientist.shinyapps.io/bmi_calculator/  
+GH Repo : https://github.com/jacethedatascientist/DevelopingDataProducts
+
+---
+```{r, echo = FALSE}
+library(shiny)
+shinyAppDir(
+  system.file("examples/BMI Calculator", package="shiny"),
+  options = list(width = "100%", height = "100%")
+)
+```
+
+## <code>How to Use the Body Mass Index Calculator?</code>
+1. Select your preferred *Metric System* that you will use as the BMI computations for both metrics is **different**.
+2. Select your *Gender* as the BMI classification is **different** among male and female.
+3. Click Reset to **clear** the menus.
+
+
+## <code>Body Mass Index Calculator</code>
+<br>
+That's it!
+<br>
+You may now go back to the application and input the necessary details to determine your BMI.
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+*This formally ends the Course Project. Thank You!*
+

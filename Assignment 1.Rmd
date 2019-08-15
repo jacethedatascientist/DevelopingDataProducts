@@ -1,0 +1,49 @@
+---
+title: "Developing Data Products Assignment 1"
+author: "jacethedatascientist"
+date: "August 14, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### **Peer-graded Assignment : R Markdown and Leaflet**
+###### *Jace Galleon*
+
+***
+
+#### I. Project Overview
+In this project, we will create a web page using R Markdown that features a map created with Leaflet. 
+
+After creating, we'll host our webpage on either GitHub Pages, RPubs, or NeoCities.
+
+***
+
+#### II. Project Objective
+Our webpage must contain:
+1. The date that you created the document; and
+2. A map created with Leaflet.
+
+Make it as creative as possible.
+
+#### III. Project Execution
+##### A. Library Loading
+```{r , cache = TRUE, echo = TRUE}
+library(leaflet)
+```
+
+***
+
+##### B. Mapping
+<center>
+```{r , cache = TRUE, echo = TRUE}
+my_map <- leaflet() %>% addTiles() 
+my_map <- my_map %>% addMarkers(lng=121.0499036, lat=14.5534542, popup="The Globe Tower")
+my_map
+```
+</center>
+***
+
+*This formally ends the Course Project. Thank You!*

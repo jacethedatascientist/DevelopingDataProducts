@@ -1,0 +1,62 @@
+---
+title: 'Peer-graded Assignment: R Markdown Presentation & Plotly'
+author: "jacethedatascientist"
+date: "August 14, 2019"
+output:
+  slidy_presentation: default
+  ioslides_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Overview
+
+In this project, we will create a web page presentation using R Markdown that features a plot created with Plotly. We'll host our webpage on either GitHub Pages, RPubs, or NeoCities. 
+
+Our webpage must contain the date that we created the document, and it must contain a plot created with Plotly. 
+
+## Preparation
+
+```{r , echo = TRUE, cache = TRUE, warning = FALSE, message = FALSE}
+library(plotly)
+library(dplyr)
+library(Ecdat)
+data(Icecream)
+```
+
+```{r , echo = TRUE, cache = TRUE}
+head(Icecream)
+```
+
+## Data Format
+<br>
+**Summary**
+The Ice cream dataset (*Icecream*) is a four-weekly observations from March 18, 1951 to July 7, 1953.
+
+It's consists of 30 observations from the United States.
+
+**Variables:**
+
+* cons - Ice Cream consumption per head (in pints)
+* income - Average family income per week (USD)
+* price - Price of ice cream (per pint)
+* temp - Average temperature (in Fahrenheit)
+<br>
+<br>
+**Source:**
+*Hildreth, C. and J. Lu (1960) Demand relations with autocorrelated disturbances, Technical Bulletin No 2765, Michigan State University.*
+
+## Relationship Between the Local Temperature and The Ice Cream Consumption in the US
+<br>
+<center>
+```{r , echo = FALSE, cache = TRUE}
+reglin <- lm(cons ~ temp, data = Icecream)
+ice_plot <- plot_ly(data = Icecream, x = ~temp, y = ~cons, type = 'scatter', mode = 'markers', name = "Plot") %>% layout(title="Consumptions Based on Humidity", xaxis=list(title="Temperature (Fahrenheit)"), yaxis=list(title="Consumption (pint)")) %>% add_trace(y = reglin$fitted.values, type = "scatter", mode = "lines", name = "Regression Line", line = list(width = 2))
+
+ice_plot
+```
+</center>
+
+Based on the graph above, the *temperature* in the locals' area is **_correlated_** to the amount of their *ice cream consumptions*.
